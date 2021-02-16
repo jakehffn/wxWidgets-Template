@@ -1,0 +1,60 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "cmake",
+            "command": "cmake",
+            "type": "shell",
+            "args": [
+                "..",
+                "-G",
+                "\"MinGW Makefiles\""
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "focus": false,
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "make",
+            "command": "mingw32-make",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "build",
+            "presentation": {
+                "panel": "shared",
+                "clear": true 
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "cmake",
+                "make"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true 
+            }
+        }
+    ]
+}
